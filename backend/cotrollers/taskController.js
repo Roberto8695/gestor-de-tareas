@@ -3,7 +3,7 @@ const taskService = require('../services/taskService');
 exports.getTasks = async (req, res) => {
     try {
         const tasks = await taskService.getAllTasks();
-        // Convert integer boolean back to real boolean
+   
         const formatted = tasks.map(t => ({...t, completed: !!t.completed}));
         res.json(formatted);
     } catch (error) {
